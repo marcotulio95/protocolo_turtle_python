@@ -26,11 +26,11 @@ request = {"funcao": "color", "valor": "green"}
 enviar(socketCliente, request)
 
 
-for x in range(360):
-	request = {"funcao": "forward", "valor": 200}
+for x in range(36):
+	request = {"funcao": "forward", "valor": [200]}
 	enviar(socketCliente, request)
 	
-	request = {"funcao": "left", "valor": 170}
+	request = {"funcao": "left", "valor": [170]}
 	enviar(socketCliente, request)
 
 

@@ -22,9 +22,15 @@ socketCliente = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 socketCliente.settimeout(3)
 
 ##-----------Definindo uma funcao --------------------------
-request = {"funcao": "color", "valor": "red"}
+
+request = {"funcao": "color", "valor": ["red"]}
 enviar(socketCliente, request)
-request = {"funcao": "forward", "valor": 100}
+
+
+request = {"funcao": "forward", "valor": [100] }
+enviar(socketCliente, request)
+
+request = {"funcao": "home", "valor": []}
 enviar(socketCliente, request)
 
 while True:

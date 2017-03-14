@@ -24,32 +24,24 @@ socketCliente.settimeout(3)
 ##-----------Definindo uma funcao --------------------------
 def DesenharQuadrado(): ## Desenha um quadrado
 	for x in range(4):
-		request = {"funcao": "forward", "valor": 100}
+		request = {"funcao": "forward", "valor": [100]}
 		enviar(socketCliente, request)
-		request = {"funcao": "left", "valor": 90}
+		request = {"funcao": "left", "valor": [90]}
 		enviar(socketCliente, request)
 
 def DesenharTriangulo(): ## Desenha um triangulo
 	for x in range(4):
-		request = {"funcao": "forward", "valor": 100}
+		request = {"funcao": "forward", "valor": [100]}
 		enviar(socketCliente, request)
-		request = {"funcao": "left", "valor": 120}
+		request = {"funcao": "left", "valor": [120]}
 		enviar(socketCliente, request)
 
 def DesenharCirculo(): ## Desenha circulo atraves da instrução circle
-	request = {"funcao": "circle", "valor": 100}
+	request = {"funcao": "circle", "valor": [100]}
 	enviar(socketCliente, request)
 
-def DesenharCirculoManualmente(): ## Neste exemplo desenhamos o circulo sem a instrução CIRCLE
-	for x in range(360):
-		request = {"funcao": "forward", "valor": x}
-		enviar(socketCliente, request)
-		request = {"funcao": "right", "valor": x}
-		enviar(socketCliente, request)
-
 ##---------Aqui deve ser chamado a funcao desejada -----------
-DesenharCirculoManualmente()
-
+DesenharCirculo()
 
 while True:
 	dado, endereco = socketCliente.recvfrom(1024)

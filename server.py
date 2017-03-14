@@ -11,8 +11,9 @@ class Tartaruga(object):
 		self.shape = shape
 		self.speed = speed
 
-	def hello(self):
-		print ("hello world !")
+	def hello(self, valor1, valor2):
+		print ("Valor1: ", valor1)
+		print ("Valor2: ", valor2)
 	
 	def TurtleForward(self, valor):
 		forward(valor)
@@ -31,7 +32,7 @@ class Tartaruga(object):
 	
 	def TurtleGoto(self, valor1, valor2):
 		goto(valor1,valor2)
-	def TurtleHome():
+	def TurtleHome(self):
 		home()
 	def TurtleCircle(self, valor):
 		circle(valor)
@@ -47,14 +48,16 @@ def error404(x):
 
 def processa(dado):
 	
-	
-	JsonDado =  json.loads(dado.decode()) ## Recupera o JSON
-	funcao = JsonDado['funcao']  ## Recupera todas a funcao passada
-	shape =  "turtle" ## Recupera o shape que se deseja, Ex: turtle = tartaruga, arrow = seta, square = quadrado
-	speed = 5  ## Recupera a velocidade com que a tartaruga desenha
+	try:
+		JsonDado =  json.loads(dado.decode()) ## Recupera o JSON
+		funcao = JsonDado['funcao']  ## Recupera todas a funcao passada
+		shape =  "turtle" ## Recupera o shape que se deseja, Ex: turtle = tartaruga, arrow = seta, square = quadrado
+		speed = 5  ## Recupera a velocidade com que a tartaruga desenha
+	except json.decoder.JSONDecodeError:
+		return ("Error 4756: Requisicao Invalida \n")
 
 	t1 = Tartaruga(shape, speed)
-
+	
 	dict = {
 			"hello" : t1.hello, 
 			"forward": t1.TurtleForward, 
@@ -71,11 +74,15 @@ def processa(dado):
 	def switch( funcao ):
 		try:
 			valor = JsonDado['valor'] ## Recupera o valor para funcao
-			dict[funcao](valor)
+			
+			dict[funcao](*valor)
+
 			return ("OK: 200\n")
 		except:
 			error404(funcao)
 			return("Error: 404\n")
+
+			
 	resposta = switch(funcao)
 	return (resposta)
 ##-----------------------Função Main ---------------------------------##
@@ -84,12 +91,8 @@ print('Iniciando servidor')
 											 	##Definindo como Socket UDP
 socketServidor = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 socketServidor.bind(('', 8880))
-##socketServidor.listen(1)
 
 print("...esperando conexoes ...")
-##conexao, endereco = socketServidor.accept()
-##print("Conexão estabelecida com endereco: ", endereco)
-
 
 while True:
 	dado, enderecoCliente = socketServidor.recvfrom(1024)
