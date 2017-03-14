@@ -1,6 +1,8 @@
-Aluno: Marco Túlio Macedo Rodrigues;
-Matricula: 135834;
-Professor: Ricardo Rocha;
+##Dados do Aluno:
+
+* Aluno: Marco Túlio Macedo Rodrigues;
+* Matricula: 135834;
+* Professor: Ricardo Rocha;
 
 Projeto desenvolvido para disciplina de Redes de Computadores 2 na Universidade Federal De Goiás.
 
