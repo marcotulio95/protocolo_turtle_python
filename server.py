@@ -26,6 +26,18 @@ class Tartaruga(object):
 	def TurtleRith(self, valor):
 		right(valor)
 
+	def TurtleColor(self, valor):
+		color(valor)
+	
+	def TurtleGoto(self, valor1, valor2):
+		goto(valor1,valor2)
+	def TurtleHome():
+		home()
+	def TurtleCircle(self, valor1, valor2):
+		circle(valor1, valor2)
+	def TurtleDot(self, valor, cor):
+		dot(valor,cor)
+		
 	
 def error404(x):
 		print("Error 404, Função: ", x, " não foi encontrada \n")
@@ -48,7 +60,12 @@ def processa(dado):
 			"forward": t1.TurtleForward, 
 			"backward": t1.TurtleBackward,
 			"left": t1.TurtleLeft, 
-			"right": t1.TurtleRith 
+			"right": t1.TurtleRith,
+			"color": t1.TurtleColor,
+			"goto": t1.TurtleGoto,
+			"home": t1.TurtleHome,
+			"circle": t1.TurtleCircle,
+			"dot": t1.TurtleDot
 			}
 
 	def switch( funcao ):

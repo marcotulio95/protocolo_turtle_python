@@ -3,22 +3,30 @@ import socket
 import json
 from io import StringIO
 
-conexao ={
-        "SERVIDOR": "localhost",
-        "PORTA": 8888
-}
+def enviar(socket, request):
+	requestJson = json.dumps(request)
+	socket.sendall(requestJson.encode())
 
-request = {"funcao": "forward", "valor": 100 }
 
 print('Iniciando cliente')
 
-requestJson = json.dumps(request)
+##----------Dados da Conexao----------------------------------
+conexao ={
+        "SERVIDOR": "localhost",
+        "PORTA": 8880
+}
 
+##----------------Instaciando nosso Socket----------------------------
 socketCliente = 	socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 socketCliente.connect((conexao['SERVIDOR'], conexao['PORTA']))
 
-socketCliente.sendall(requestJson.encode())
+
+##-----------Definindo uma funcao --------------------------
+request = {"funcao": "color", "valor": "red"}
+enviar(socketCliente, request)
+request = {"funcao": "forward", "valor": 100}
+enviar(socketCliente, request)
 
 while True:
 	dado = socketCliente.recv(1024)
