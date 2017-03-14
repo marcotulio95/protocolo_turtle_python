@@ -81,22 +81,22 @@ def processa(dado):
 ##-----------------------Função Main ---------------------------------##
 
 print('Iniciando servidor')
-
-socketServidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+											 	##Definindo como Socket UDP
+socketServidor = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 socketServidor.bind(('', 8880))
-
-socketServidor.listen(1)
+##socketServidor.listen(1)
 
 print("...esperando conexoes ...")
-conexao, endereco = socketServidor.accept()
-print("Conexão estabelecida com endereco: ", endereco)
+##conexao, endereco = socketServidor.accept()
+##print("Conexão estabelecida com endereco: ", endereco)
 
 
 while True:
-	dado = conexao.recv(1024)
-	print (dado)
+	dado, enderecoCliente = socketServidor.recvfrom(1024)
+	print (dado, " de: ", enderecoCliente)
 	if not dado: break
 	resposta = processa(dado)
-	conexao.sendall(resposta.encode())
+	socketServidor.sendto(resposta.encode(), enderecoCliente)
+
 socketServidor.close()
 
