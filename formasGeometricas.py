@@ -1,3 +1,8 @@
+'''
+Formas Geometricas é um cliente para que faz requisições ao nosso serve Turtle.
+Ele faz requicoes de maneira a forma 3 formas Geometricas diferentes de acordo com a funcao desejada.
+'''
+
 import base64
 import socket
 import json
@@ -42,7 +47,7 @@ def DesenharCirculoManualmente(): ## Neste exemplo desenhamos o circulo sem a in
 		request = {"funcao": "right", "valor": x}
 		enviar(socketCliente, request)
 
-
+##---------Aqui deve ser chamado a funcao desejada -----------
 DesenharCirculoManualmente()
 
 

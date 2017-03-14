@@ -3,6 +3,9 @@ import socket
 import json
 from io import StringIO
 
+'''
+Este cliente desenha uma estrela na cor vermelha.
+'''
 def enviar(socket, request, SERVIDOR="localhost", PORTA= 8880):
 	requestJson = json.dumps(request)
 	socket.sendto( requestJson.encode() , (SERVIDOR, PORTA))

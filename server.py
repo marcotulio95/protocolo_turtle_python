@@ -33,8 +33,8 @@ class Tartaruga(object):
 		goto(valor1,valor2)
 	def TurtleHome():
 		home()
-	def TurtleCircle(self, valor1, valor2):
-		circle(valor1, valor2)
+	def TurtleCircle(self, valor):
+		circle(valor)
 	def TurtleDot(self, valor, cor):
 		dot(valor,cor)
 		

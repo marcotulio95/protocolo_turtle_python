@@ -7,6 +7,9 @@ def enviar(socket, request, SERVIDOR="localhost", PORTA= 8880):
 	requestJson = json.dumps(request)
 	socket.sendto( requestJson.encode() , (SERVIDOR, PORTA))
 
+'''
+Este cliente desenha uma estrela na cor verde.
+'''
 
 print('Iniciando cliente')
 
