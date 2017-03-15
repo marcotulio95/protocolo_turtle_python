@@ -18,7 +18,7 @@ Envia uma mensagem ao servidor informando a instrução desejada e seu respectiv
 Exemplo de mensagem com 1 parametro:
     
     ```
-    {"funcao": "color", "valor": ["red"]}
+       $ {"funcao": "color", "valor": ["red"]}
     ```
 Onde que:
 *   funcao: deve ser informado o nome da funcao desejada. (Ex: Color)
@@ -28,7 +28,7 @@ Onde que:
 Exemplo de mensagem com N parametros:
 
     ```    
-    {"funcao": "nome_funcao", "valor": [param_1, param_2, ..., param_N]} 
+    $ {"funcao": "nome_funcao", "valor": [param_1, param_2, ..., param_N]} 
     ```
 
 ## Server: 
