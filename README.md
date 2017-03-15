@@ -17,9 +17,9 @@ Envia uma mensagem ao servidor informando a instrução desejada e seu respectiv
 
 Exemplo de mensagem com 1 parametro:
     
-    ```
-       $ {"funcao": "color", "valor": ["red"]}
-    ```
+```bash
+$ {"funcao": "color", "valor": ["red"]}
+```
 Onde que:
 *   funcao: deve ser informado o nome da funcao desejada. (Ex: Color)
 *   valor: deve ser informado o valor para a funcao que esa sendo informada. (Ex: Red )
@@ -27,9 +27,9 @@ Onde que:
 
 Exemplo de mensagem com N parametros:
 
-    ```    
-    $ {"funcao": "nome_funcao", "valor": [param_1, param_2, ..., param_N]} 
-    ```
+```bash
+$ {"funcao": "nome_funcao", "valor": [param_1, param_2, ..., param_N]} 
+```
 
 ## Server: 
 Recebe a instrução  proveniente do Client e desenha na tela a respectiva instrução e devolve algum tipo de resposta ao client.
