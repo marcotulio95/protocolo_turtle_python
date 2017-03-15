@@ -28,8 +28,7 @@ Onde que:
 
 Exemplo de mensagem com N parametros:
     
-    ```
-        {"funcao": "nome_funcao", "valor": [param_1, param_2, ..., param_N]} 
+    ```{"funcao": "nome_funcao", "valor": [param_1, param_2, ..., param_N]} 
     ```
 
 ## Server: 
