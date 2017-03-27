@@ -38,3 +38,8 @@ Repostas:
 *   200: OK (Função existe no servidor)
 *   404: NOK (Função não foi encontrada no servidor)
 *	4756: Requisicão Inválida
+## Instanciano um servidor:
+<p align="center"><img width="40%" src="img/isntaciando_servidor.png" /></p>
+
+## Executando um cliente:
+<p align="center"><img width="40%" src="img/executando_cliente.png" /></p>
